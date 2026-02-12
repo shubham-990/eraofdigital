@@ -23,11 +23,18 @@
             --purple-dark: #7C3AED;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text);
-            overflow-x: hidden;
             background: var(--secondary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Modern Navigation */
@@ -182,7 +189,7 @@
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%;
+                right: 0;
                 width: 80%;
                 max-width: 400px;
                 height: 100vh;
@@ -197,10 +204,11 @@
                 z-index: 2100;
                 box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
                 border-left: 1px solid rgba(6, 182, 212, 0.2);
+                transform: translateX(100%);
             }
 
             nav.nav-open .nav-links {
-                right: 0;
+                transform: translateX(0);
             }
 
             .nav-links li {
@@ -351,6 +359,7 @@
         .hero-buttons {
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap;
             animation: slideUp 1s ease-out 0.4s backwards;
         }
 
@@ -779,6 +788,12 @@
             color: var(--text);
             margin-bottom: 2rem;
             font-style: italic;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .testimonial-text a {
+            word-break: break-all;
         }
 
         .testimonial-author {
@@ -1003,6 +1018,8 @@
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: all 0.3s;
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
 
         .footer-links a:hover {
@@ -1060,6 +1077,28 @@
 
             .cta-form {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 8rem 1rem 3rem;
+            }
+            
+            .services, .process, .portfolio, .testimonials, .cta-section {
+                padding: 4rem 1rem;
             }
         }
     </style>
